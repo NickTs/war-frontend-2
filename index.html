@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to World Art Registry</title>
+</head>
+<body>
+<noscript>
+    You need to enable JavaScript to run this app.
+</noscript>
+<div id="root"></div>
+<script>
+var name="l"
+var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+var l=matches?decodeURIComponent(matches[1]):undefined
+if(!l) l = navigator ? (navigator.language ? navigator.language.substr(0,2).toLowerCase() : "en") : "en";
+if(l!="en" && l!="ru") l="en";
+name="jwt"
+matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+var jwt=matches?decodeURIComponent(matches[1]):undefined
+if(jwt) {
+    document.location.href="/private/"+l
+} else {
+    document.location.href="/public/"+l
+}
+</script>
+</body>
+</html>

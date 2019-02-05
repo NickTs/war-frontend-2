@@ -1,0 +1,23 @@
+## Дизайн:
+https://nt9yw8.axshare.com
+
+## Material-UI:
+https://nt9yw8.axshare.com
+
+##live-server (install):
+sudo npm install -g live-server
+
+## Если при запуске live-server возникает
+## ошибка ENOSPC
+(Временное)
+$ sudo sysctl fs.inotify.max_user_watches=524288
+$ sudo sysctl -p
+(Постоянное)
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+$ sudo sysctl -p
+
+
+## GIT update .gitignore
+git rm -r --cached .
+git add .
+git commit -m "gitignore update"
